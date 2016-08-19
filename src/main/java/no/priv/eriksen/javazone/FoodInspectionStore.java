@@ -8,4 +8,6 @@ public interface FoodInspectionStore {
 
     List<FoodInspection> getByPostCode(int postCode);
 
+    int size();
+
 }

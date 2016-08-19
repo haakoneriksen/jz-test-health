@@ -13,7 +13,9 @@ import java.util.stream.Collectors;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.stereotype.Component;
 
+@Component
 class CsvFoodInspectionStore implements FoodInspectionStore {
 
     private final List<FoodInspection> foodInspections = new ArrayList<>();
@@ -69,6 +71,11 @@ class CsvFoodInspectionStore implements FoodInspectionStore {
         return foodInspections.stream()
                 .filter(inspection -> inspection.postCode == postCode)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public int size() {
+        return foodInspections.size();
     }
 
 }

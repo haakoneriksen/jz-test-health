@@ -22,4 +22,9 @@ class StubFoodInspectionStore implements FoodInspectionStore {
         return foodInspections;
     }
 
+    @Override
+    public int size() {
+        return 1;
+    }
+
 }
