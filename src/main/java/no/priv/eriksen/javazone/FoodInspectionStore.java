@@ -2,10 +2,10 @@ package no.priv.eriksen.javazone;
 
 import java.util.List;
 
-interface FoodInspectionStore {
+public interface FoodInspectionStore {
 
-    List<Inspection> getByOrgId(int orgId);
+    List<FoodInspection> getByOrgId(int orgId);
 
-    List<Inspection> getByPostCode(int postCode);
+    List<FoodInspection> getByPostCode(int postCode);
 
 }

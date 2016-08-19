@@ -19,12 +19,12 @@ class FoodInspectionController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/orgid/{id}")
-    List<Inspection> getInspectionByOrgId(@PathVariable(value = "id") Integer orgid) {
+    List<FoodInspection> getInspectionByOrgId(@PathVariable(value = "id") Integer orgid) {
         return foodInspectionStore.getByOrgId(orgid);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/postnr/{nr}")
-    List<Inspection> getInspectionByPostcode(@PathVariable(value = "nr") Integer postCode) {
+    List<FoodInspection> getInspectionByPostcode(@PathVariable(value = "nr") Integer postCode) {
         return foodInspectionStore.getByPostCode(postCode);
     }
 

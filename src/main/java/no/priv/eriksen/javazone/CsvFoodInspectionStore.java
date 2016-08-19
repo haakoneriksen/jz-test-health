@@ -16,7 +16,7 @@ import org.apache.commons.csv.CSVRecord;
 
 class CsvFoodInspectionStore implements FoodInspectionStore {
 
-    private final List<Inspection> inspections = new ArrayList<>();
+    private final List<FoodInspection> foodInspections = new ArrayList<>();
 
     CsvFoodInspectionStore() throws IOException {
         Reader reader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream("tilsyn.csv")));
@@ -44,7 +44,7 @@ class CsvFoodInspectionStore implements FoodInspectionStore {
             String postName = record.get(headers.get("poststed"));
             Integer inspectionResult = Integer.valueOf(record.get(headers.get("total_karakter")));
 
-            inspections.add(new Inspection(name, orgId, address, postCode, postName, inspectionResult));
+            foodInspections.add(new FoodInspection(name, orgId, address, postCode, postName, inspectionResult));
         }
     }
 
@@ -58,15 +58,15 @@ class CsvFoodInspectionStore implements FoodInspectionStore {
     }
 
     @Override
-    public List<Inspection> getByOrgId(int orgId) {
-        return inspections.stream()
+    public List<FoodInspection> getByOrgId(int orgId) {
+        return foodInspections.stream()
                 .filter(inspection -> inspection.orgId == orgId)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<Inspection> getByPostCode(int postCode) {
-        return inspections.stream()
+    public List<FoodInspection> getByPostCode(int postCode) {
+        return foodInspections.stream()
                 .filter(inspection -> inspection.postCode == postCode)
                 .collect(Collectors.toList());
     }

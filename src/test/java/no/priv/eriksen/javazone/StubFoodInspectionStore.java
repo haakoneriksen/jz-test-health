@@ -6,20 +6,20 @@ import java.util.List;
 class StubFoodInspectionStore implements FoodInspectionStore {
 
     @Override
-    public List<Inspection> getByOrgId(int orgId) {
-        return getInspections();
+    public List<FoodInspection> getByOrgId(int orgId) {
+        return getFoodInspections();
     }
 
     @Override
-    public List<Inspection> getByPostCode(int postCode) {
-        return getInspections();
+    public List<FoodInspection> getByPostCode(int postCode) {
+        return getFoodInspections();
     }
 
-    private List<Inspection> getInspections() {
-        Inspection inspection = new Inspection("Rest Aurant", 123456, "Gateveien 5", 1234, "Sted", 2);
-        List<Inspection> inspectionList = new ArrayList<>();
-        inspectionList.add(inspection);
-        return inspectionList;
+    private List<FoodInspection> getFoodInspections() {
+        FoodInspection foodInspection = new FoodInspection("Rest Aurant", 123456, "Gateveien 5", 1234, "Sted", 2);
+        List<FoodInspection> foodInspections = new ArrayList<>();
+        foodInspections.add(foodInspection);
+        return foodInspections;
     }
 
 }

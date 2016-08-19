@@ -18,18 +18,18 @@ public class CsvFoodInspectionStoreTest {
 
     @Test
     public void canGetInspectionByOrgId() throws Exception {
-        List<Inspection> inspections = foodInspectionStore.getByOrgId(985129576);
-        assertTrue(inspections.get(0).orgId == 985129576);
-        assertTrue(inspections.get(0).postCode == 9950);
-        assertTrue(inspections.get(0).name.equals("Abc Thai AS"));
+        List<FoodInspection> foodInspections = foodInspectionStore.getByOrgId(985129576);
+        assertTrue(foodInspections.get(0).orgId == 985129576);
+        assertTrue(foodInspections.get(0).postCode == 9950);
+        assertTrue(foodInspections.get(0).name.equals("Abc Thai AS"));
     }
 
     @Test
     public void catGetInspectionByPostCode() throws Exception {
-        List<Inspection> inspections = foodInspectionStore.getByPostCode(9950);
-        assertTrue(inspections.get(0).orgId == 985129576);
-        assertTrue(inspections.get(0).postCode == 9950);
-        assertTrue(inspections.size() >= 1);
+        List<FoodInspection> foodInspections = foodInspectionStore.getByPostCode(9950);
+        assertTrue(foodInspections.get(0).orgId == 985129576);
+        assertTrue(foodInspections.get(0).postCode == 9950);
+        assertTrue(foodInspections.size() >= 1);
     }
 
 }
