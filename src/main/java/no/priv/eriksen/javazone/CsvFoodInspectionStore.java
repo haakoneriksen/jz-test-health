@@ -16,11 +16,11 @@ import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Component;
 
 @Component
-class CsvFoodInspectionStore implements FoodInspectionStore {
+public class CsvFoodInspectionStore implements FoodInspectionStore {
 
     private final List<FoodInspection> foodInspections = new ArrayList<>();
 
-    CsvFoodInspectionStore() throws IOException {
+    public CsvFoodInspectionStore() throws IOException {
         Reader reader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream("tilsyn.csv")));
         CSVParser parser = new CSVParser(reader, CSVFormat.DEFAULT.withDelimiter(';'));
         List<CSVRecord> records = parser.getRecords();
